@@ -2,4 +2,4 @@ applications:
   - name: app
     instances: 2
     routes:
-      - (( concat $USERNAME "-app.apps.cfna2018.starkandwayne.com" ))
+      - route: (( concat $USERNAME "-app.apps.cfna2018.starkandwayne.com" ))
