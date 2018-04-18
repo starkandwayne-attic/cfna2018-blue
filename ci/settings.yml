@@ -1,5 +1,4 @@
 ---
 meta:
   github:
-    owner:        starkandwayne
-    access_token: blah
+    owner: (( param "Replace this with your Github username" ))
