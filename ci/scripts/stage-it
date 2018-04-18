@@ -1,0 +1,27 @@
+#!/bin/bash
+set -ex
+
+echo; echo
+echo "Wiring up to Cloud Foundry at ${CF_API}..."
+echo
+cf api "${CF_API}"
+cf auth "${CF_USERNAME}" "${CF_PASSWORD}"
+cf target -o "${CF_ORG}" "${CF_SPACE}"
+
+echo; echo
+echo "Staging app..."
+echo
+cf delete venerable-app || true
+cf rename app venerable-app
+
+pushd app >/dev/null 2>&1
+cf push -f <(spruce merge manifest.yml)
+cf apps
+popd      >/dev/null 2>&1
+
+cf map-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
+cf apps
+
+echo; echo
+echo "DONE"
+exit 0
