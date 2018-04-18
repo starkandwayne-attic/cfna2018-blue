@@ -1,0 +1,19 @@
+#!/bin/bash
+set -ex
+
+echo; echo
+echo "Wiring up to Cloud Foundry at ${CF_API}..."
+echo
+cf api "${CF_API}" --skip-ssl-validation
+cf auth "${CF_USERNAME}" "${CF_PASSWORD}"
+cf target -o "${CF_ORG}" -s "${CF_SPACE}"
+
+echo; echo
+echo "Unmapping route from venerable app..."
+cf delete -r -f app
+cf rename venerable-app app
+cf apps
+
+echo; echo
+echo "DONE"
+exit 0

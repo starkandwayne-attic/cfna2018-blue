@@ -101,3 +101,32 @@ jobs:
         CF_PASSWORD: (( grab meta.cf.password ))
         CF_ORG:      (( grab meta.cf.org ))
         CF_SPACE:    (( grab meta.cf.space ))
+
+- name: rollback
+  serial: true
+  public: true
+  plan:
+  - aggregate:
+    - get: app
+      trigger: false
+      passed: [ stage-app ]
+  - task: deploy-prod
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: starkandwayne/concourse
+          tag: latest
+      inputs:
+        - name: app
+      run:
+        path: app/ci/scripts/roll-it-back
+        args: []
+      params:
+        USERNAME:    (( grab $USER ))
+        CF_API:      (( grab meta.cf.api_url ))
+        CF_USERNAME: (( grab meta.cf.username ))
+        CF_PASSWORD: (( grab meta.cf.password ))
+        CF_ORG:      (( grab meta.cf.org ))
+        CF_SPACE:    (( grab meta.cf.space ))
