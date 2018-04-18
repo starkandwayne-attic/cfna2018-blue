@@ -1,5 +1,5 @@
 meta:
-  name: (( param "What is your cfdev# lab username?" ))
+  name: (( grab $USER ))
   cf:
     api_url:  api.cfna2018.starkandwayne.com
     username: anything
@@ -78,6 +78,7 @@ jobs:
       trigger: false
       passed: [ stage-app ]
   - task: deploy-prod
+    config:
       platform: linux
       image_resource:
         type: docker-image
