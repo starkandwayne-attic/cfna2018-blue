@@ -1,4 +1,5 @@
 applications:
   - name: app
     instances: 2
-    hostname: (( concat $USERNAME "-app" ))
+    routes:
+      - (( concat $USERNAME "-app.apps.cfna2018.starkandwayne.com" ))
