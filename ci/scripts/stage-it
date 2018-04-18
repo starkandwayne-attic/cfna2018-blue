@@ -11,7 +11,7 @@ cf target -o "${CF_ORG}" -s "${CF_SPACE}"
 echo; echo
 echo "Staging app..."
 echo
-cf delete venerable-app || true
+cf delete -rf venerable-app || true
 cf rename app venerable-app
 
 pushd app >/dev/null 2>&1
