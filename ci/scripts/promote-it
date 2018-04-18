@@ -10,7 +10,7 @@ cf target -o "${CF_ORG}" "${CF_SPACE}"
 
 echo; echo
 echo "Unmapping route from venerable app..."
-cf unmap-route venerable-${CF_APP} apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
+cf unmap-route venerable-app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
 cf apps
 
 echo; echo

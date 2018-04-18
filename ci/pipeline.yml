@@ -1,12 +1,17 @@
 meta:
-  name: (( grab $USER ))
+  name:     (( concat "blue-green-lab-" meta.github.owner ))
+  release:  (( concat meta.name " Release" ))
+  pipeline: (( grab meta.name ))
+  url:      https://ci.cfna2018.starkandwayne.com
+  target:   cfna2018
+
+  user: (( grab $USER ))
   cf:
     api_url:  api.cfna2018.starkandwayne.com
     username: anything
     password: swiss hearse liking mover
     org:      blue-green
-    space:    (( grab meta.name ))
-    app:      (( grab meta.name ))
+    space:    (( grab meta.user ))
 
 
 resources:
@@ -14,7 +19,7 @@ resources:
   type: git
   source:
     branch: master
-    uri:    (( concat "https://github.com/" meta.git.owner "/cfna-2018-blue" ))
+    uri:    (( concat "https://github.com/" meta.github.owner "/cfna2018-blue" ))
 
 jobs:
 - name: testflight
@@ -25,8 +30,6 @@ jobs:
     trigger: true
 
   - task: testflight
-    inputs:
-      - name: app
     config:
       platform: linux
       image_resource:
@@ -34,6 +37,8 @@ jobs:
         source:
           repository: djudorange/node-gulp-mocha
           tag: latest
+      inputs:
+        - name: app
       run:
         path: app/ci/scripts/testflight
         args: []
@@ -48,8 +53,6 @@ jobs:
       trigger: true
       passed: [ testflight ]
   - task: stage-app
-    inputs:
-      - name: app
     config:
       platform: linux
       image_resource:
@@ -57,6 +60,8 @@ jobs:
         source:
           repository: djudorange/node-gulp-mocha
           tag: latest
+      inputs:
+        - name: app
       run:
         path: app/ci/scripts/stage-it
         args: []
@@ -67,7 +72,6 @@ jobs:
         CF_PASSWORD: (( grab meta.cf.password ))
         CF_ORG:      (( grab meta.cf.org ))
         CF_SPACE:    (( grab meta.cf.space ))
-        CF_APP:      (( grab meta.cf.app ))
 
 - name: promote
   serial: true
@@ -95,4 +99,3 @@ jobs:
         CF_PASSWORD: (( grab meta.cf.password ))
         CF_ORG:      (( grab meta.cf.org ))
         CF_SPACE:    (( grab meta.cf.space ))
-        CF_APP:      (( grab meta.cf.app ))
