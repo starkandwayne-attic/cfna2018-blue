@@ -6,7 +6,7 @@ echo "Wiring up to Cloud Foundry at ${CF_API}..."
 echo
 cf api "${CF_API}" --skip-ssl-validation
 cf auth "${CF_USERNAME}" "${CF_PASSWORD}"
-cf target -o "${CF_ORG}" "${CF_SPACE}"
+cf target -o "${CF_ORG}" -s "${CF_SPACE}"
 
 echo; echo
 echo "Staging app..."
