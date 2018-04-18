@@ -89,6 +89,8 @@ jobs:
         source:
           repository: starkandwayne/concourse
           tag: latest
+      inputs:
+        - name: app
       run:
         path: app/ci/scripts/promote-it
         args: []

@@ -28,7 +28,12 @@ app.get('/images/*', function(req, res) {   // serve image files
 app.all('*', function(req, res) {   // serve all other requests
   var vcap_app=process.env.VCAP_APPLICATION || '{ "application_name":"","application_version":"","application_uris":""}';
   var app_obj = JSON.parse(vcap_app)
-  var icon_name = (app_obj.application_name.indexOf("blue")>= 0)?"Blue-station.png":"Green-station.png";
+
+  var icon_name = "Green-station.png";
+  //
+  // uncomment me
+  //var icon_name = "Blue-station.png";
+
   res.writeHead(200, {"Content-Type": "text/html; charset=UTF-8"});
   res.write("<html><body style='font-family: Arial'><img align='left' src='./images/Blue-Green-icon.png'>");
   res.write("<h1><br><br><br>&nbsp;&nbsp;Blue-Green deployments</h1><hr>");
