@@ -7,7 +7,7 @@ meta:
 
   user: (( grab $USER ))
   cf:
-    api_url:  api.cfna2018.starkandwayne.com
+    api_url:  api.system.cfna2018.starkandwayne.com
     username: anything
     password: swiss hearse liking mover
     org:      blue-green
@@ -58,7 +58,7 @@ jobs:
       image_resource:
         type: docker-image
         source:
-          repository: djudorange/node-gulp-mocha
+          repository: starkandwayne/concourse
           tag: latest
       inputs:
         - name: app
@@ -87,7 +87,7 @@ jobs:
       image_resource:
         type: docker-image
         source:
-          repository: djudorange/node-gulp-mocha
+          repository: starkandwayne/concourse
           tag: latest
       run:
         path: app/ci/scripts/promote-it
