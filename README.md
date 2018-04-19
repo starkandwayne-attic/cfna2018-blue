@@ -20,7 +20,7 @@ https://ci.cfna2018.starkandwayne.com
 https://ci.cfna2018.starkandwayne.com/beta/dashboard
 
 ## Test Development workflow
-* Edit the application https://github.com/<github username>/cfna2018-blue/blob/master/index.js
+* Edit the application https://github.com/${GITHUB_USERNAME}/cfna2018-blue/blob/master/index.js
 * The simplest noticeable effect is to uncomment line 35
 * This will trigger the pipeline
 
