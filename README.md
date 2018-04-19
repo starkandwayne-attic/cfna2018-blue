@@ -4,7 +4,7 @@ A Test App for Blue-Green Deployment Hands-on Labs
 ## Setup this example
 * You'll be assigned a jumphost user on cfdev{n}@bg-lab1.cfna2018.starkandwayne.com
    Where {n} is a number assigned by instructor
-* Fork this repository manually on github <a href="https://github.com/starkandwayne/cfna2018-blue" target="new">https://github.com/starkandwayne/cfna2018-blue</a>
+* Fork this repository manually on github <a href="https://github.com/starkandwayne/cfna2018-blue" target="_blank">https://github.com/starkandwayne/cfna2018-blue</a>
 
 ## Run this lab
 * `ssh cfdev<n>@bg-lab1.cfna2018.starkandwayne.com`
