@@ -1,5 +1,4 @@
 applications:
   - name: app
     instances: 2
-    routes:
-      - route: (( concat $USERNAME "-app.apps.cfna2018.starkandwayne.com" ))
+    no-route: true
