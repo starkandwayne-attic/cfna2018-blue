@@ -9,10 +9,13 @@ cf auth "${CF_USERNAME}" "${CF_PASSWORD}"
 cf target -o "${CF_ORG}" -s "${CF_SPACE}"
 
 echo; echo
+(cf unmap-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-blue || true)
+
+echo; echo
 echo "Staging app..."
 echo
-(cf delete -f venerable-app || true
- cf rename app venerable-app   || true) >/dev/null 2>&1
+(cf delete -f venerable-app  || true
+ cf rename app venerable-app || true) >/dev/null 2>&1
 
 pushd app >/dev/null 2>&1
 cf push -f <(spruce merge manifest.yml)
@@ -20,6 +23,7 @@ cf apps
 popd      >/dev/null 2>&1
 
 cf map-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
+cf map-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-blue
 cf apps
 
 echo; echo
