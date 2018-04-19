@@ -10,7 +10,7 @@ cf target -o "${CF_ORG}" -s "${CF_SPACE}"
 
 echo; echo
 echo "Re-mapping the route to the venerable app..."
-cf map-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
+cf map-route venerable-app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
 
 echo; echo
 echo "Deleting candidate app..."
