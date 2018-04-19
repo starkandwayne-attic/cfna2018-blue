@@ -81,7 +81,7 @@ jobs:
     - get: app
       trigger: false
       passed: [ stage-app ]
-  - task: deploy-prod
+  - task: promote
     config:
       platform: linux
       image_resource:
@@ -110,7 +110,7 @@ jobs:
     - get: app
       trigger: false
       passed: [ stage-app ]
-  - task: deploy-prod
+  - task: rollback
     config:
       platform: linux
       image_resource:

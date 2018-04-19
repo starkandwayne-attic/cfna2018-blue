@@ -9,7 +9,11 @@ cf auth "${CF_USERNAME}" "${CF_PASSWORD}"
 cf target -o "${CF_ORG}" -s "${CF_SPACE}"
 
 echo; echo
-echo "Unmapping route from venerable app..."
+echo "Re-mapping routes to venerable app version..."
+cf map-route venerable-app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
+
+echo; echo
+echo "Deleting candidate app..."
 cf delete -r -f app
 cf rename venerable-app app
 cf apps
