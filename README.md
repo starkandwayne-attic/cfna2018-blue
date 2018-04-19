@@ -9,7 +9,7 @@ A Test App for Blue-Green Deployment Hands-on Labs
 ## Run this lab
 * `ssh cfdev<n>@bg-lab1.cfna2018.starkandwayne.com`
 * Clone your fork of this repository `git clone https://github.com/${GITHUB_USERNAME}/cfna2018-blue`
-* Add your github username to ci/settings.yml `nano ci/settings.yml`
+* Add your github username to ci/settings.yml `cd cfna2018-blue` & `nano ci/settings.yml`
 * `fly -t cfna2018 login -k -u ci -p ${CONCOURSE_PASSWORD} -c https://ci.cfna2018.starkandwayne.com`
 * Run Repipe from the forked repository`./ci/repipe.sh`
 
