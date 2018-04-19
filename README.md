@@ -7,7 +7,7 @@ A Test App for Blue-Green Deployment Hands-on Labs
 * Fork this repository manually on github https://github.com/starkandwayne/cfna2018-blue
 
 ## Run this lab
-* `SSH cfdev<n>@bg-lab1.cfna2018.starkandwayne.com`
+* `ssh cfdev<n>@bg-lab1.cfna2018.starkandwayne.com`
 * Clone your fork of this repository `git clone https://github.com/<your github username>/cfna2018-blue`
 * Add your github username to ci/settings.yml
 * `fly -t cfna2018 login -k -u ci -p ${CONCOURSE_PASSWORD} -c https://ci.cfna2018.starkandwayne.com`
