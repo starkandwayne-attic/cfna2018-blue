@@ -14,7 +14,7 @@ cf map-route venerable-app apps.cfna2018.starkandwayne.com --hostname ${USERNAME
 
 echo; echo
 echo "Deleting candidate app..."
-cf delete -r -f app
+cf delete -f app
 cf rename venerable-app app
 cf apps
 
