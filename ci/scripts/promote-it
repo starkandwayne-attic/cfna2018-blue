@@ -9,6 +9,10 @@ cf auth "${CF_USERNAME}" "${CF_PASSWORD}"
 cf target -o "${CF_ORG}" -s "${CF_SPACE}"
 
 echo; echo
+echo "Mapping production route to app..."
+cf map-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
+
+echo; echo
 echo "Unmapping route from venerable app..."
 cf unmap-route venerable-app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app || true
 cf apps

@@ -22,7 +22,7 @@ cf push -f <(spruce merge manifest.yml)
 cf apps
 popd      >/dev/null 2>&1
 
-cf map-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
+#cf map-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-app
 cf map-route app apps.cfna2018.starkandwayne.com --hostname ${USERNAME}-blue
 cf apps
 
