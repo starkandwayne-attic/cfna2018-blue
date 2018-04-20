@@ -2,9 +2,9 @@
 A Test App for Blue-Green Deployment Hands-on Labs
 
 ## How to Run this lab
-A jumphost has been provisioned with 12 users. Each corresponds to one of the lab computers. You can log in to this jumphost by using the number of your workstation. The password is provided by your instructor. 
+A jumphost has been provisioned with 12 users. Each corresponds to one of the lab computers. You can log in to this jumphost by using the number of your workstation ${n}. The password is provided by your instructor. 
 
-`ssh cfdev<n>@bg-lab2.cfna2018.starkandwayne.com`
+`ssh cfdev${n}@bg-lab2.cfna2018.starkandwayne.com`
 
 There is a clone of this repository waiting for you in your users home directory. 
 
